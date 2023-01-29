@@ -1,10 +1,11 @@
 package main
 
 import (
-	"github.com/siddontang/go-mysql/canal"
-	"github.com/siddontang/go-mysql/schema"
 	"testing"
 	"time"
+
+	"github.com/go-mysql-org/go-mysql/canal"
+	"github.com/go-mysql-org/go-mysql/schema"
 )
 
 func TestCommonHandler_GetBinLogDataGetBinLogData_Insert(t *testing.T) {

@@ -2,8 +2,9 @@ package main
 
 import (
 	"fmt"
-	"github.com/siddontang/go-mysql/canal"
 	"runtime/debug"
+
+	"github.com/go-mysql-org/go-mysql/canal"
 )
 
 type binlogHandler struct {

@@ -2,12 +2,13 @@ package main
 
 import (
 	"fmt"
-	"github.com/json-iterator/go"
-	"github.com/siddontang/go-mysql/canal"
-	"github.com/siddontang/go-mysql/schema"
 	"reflect"
 	"strings"
 	"time"
+
+	"github.com/go-mysql-org/go-mysql/canal"
+	"github.com/go-mysql-org/go-mysql/schema"
+	"github.com/json-iterator/go"
 )
 
 type BinlogParser struct{}
