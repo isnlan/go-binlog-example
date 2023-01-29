@@ -1,4 +1,4 @@
-create table Test.User
+create table mydb.user
 (
   id int auto_increment primary key,
   name varchar(40) null,
@@ -7,7 +7,6 @@ create table Test.User
 )
   engine=InnoDB;
 
-
-INSERT Into Test.User (`id`,`name`) VALUE (1,"Jack");
-UPDATE Test.User SET name="Jonh" WHERE id=1;
-DELETE FROM Test.User WHERE id=1;
+INSERT Into mydb.user (`id`,`name`) VALUE (1,"Jack");
+UPDATE mydb.user SET name="Jonh" WHERE id=1;
+DELETE FROM mydb.user WHERE id=1;

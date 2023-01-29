@@ -2,12 +2,33 @@ package main
 
 import (
 	"fmt"
-	"time"
+
+	"github.com/go-mysql-org/go-mysql/canal"
 )
 
 func main() {
-	go binlogListener()
+	cfg := canal.NewDefaultConfig()
+	cfg.Addr = fmt.Sprintf("%s:%d", "127.0.0.1", 3306)
+	cfg.User = "root"
+	cfg.Password = "root"
+	cfg.Flavor = "mysql"
+	cfg.Dump.ExecutionPath = ""
 
-	time.Sleep(2 * time.Minute)
-	fmt.Print("Thx for watching, goodbuy")
+	c, err := canal.NewCanal(cfg)
+	if err != nil {
+		panic(err)
+	}
+
+	coords, err := c.GetMasterPos()
+	if err != nil {
+		panic(err)
+	}
+
+	fmt.Printf("postion: %v\n", coords)
+
+	c.SetEventHandler(&binlogHandler{})
+	err = c.RunFrom(coords)
+	if err != nil {
+		panic(err)
+	}
 }
