@@ -25,6 +25,7 @@ func main() {
 	}
 
 	fmt.Printf("postion: %v\n", coords)
+	coords.Pos = 1095
 
 	c.SetEventHandler(&binlogHandler{})
 	err = c.RunFrom(coords)

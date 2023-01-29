@@ -14,5 +14,5 @@ func (User) TableName() string {
 }
 
 func (User) SchemaName() string {
-	return "test"
+	return "mydb"
 }
